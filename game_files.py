@@ -1,6 +1,19 @@
 import csv
 
 
+def create_new_game_files(rounds=[1]):
+    """
+    Create a new game, re-creates all the game files to 'reset' them all. The optional parm rounds can be populated to
+    create more than 1 round.
+    :param rounds: Pass in the number of rounds to create in a list e.g [1, 2, 3,] will create three rounds
+    :return:
+    """
+    generate_user_file()
+    # Only going to generate 1 round
+    round_info_file(rounds)
+    processed_round_info_files(rounds)
+
+
 def generate_user_file():
     f = open('game_files/user_info.csv', 'w+')
     writer = csv.writer(f, lineterminator='\n')
