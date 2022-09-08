@@ -1,12 +1,13 @@
 from flask import Flask, render_template
 from game_files import create_new_game_files
+from game_files import game_files_setup
 
 app = Flask(__name__)
+app.register_blueprint(game_files_setup)
 
 
 @app.route('/')
 def index():
-    create_new_game_files([1,2,3])
     return render_template('index.html')
 
 

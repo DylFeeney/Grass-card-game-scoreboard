@@ -1,4 +1,10 @@
+from flask import request, render_template, Blueprint
 import csv
+
+game_files_setup = Blueprint('game_files_setup', __name__, template_folder='templates')
+@game_files_setup.route('/game-files-setup', methods=['POST', 'GET'])
+def game_files_setup_page():
+    return render_template('games_files_setup.html')
 
 
 def create_new_game_files(rounds=[1]):
