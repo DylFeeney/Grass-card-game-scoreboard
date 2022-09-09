@@ -43,3 +43,28 @@ def read_game_options():
     with open('game_files/game_optons.json', 'r') as jsonFile:
         game_options_data = json.load(jsonFile)
     return game_options_data
+
+
+def get_banker_value():
+    data = read_game_options()
+    return data['banker']
+
+
+def get_sold_out_penalty():
+    data = read_game_options()
+    return data['sold_out']
+
+
+def get_doublecrossed_penalty():
+    data = read_game_options()
+    return data['doublecrossed']
+
+
+def get_utterly_wiped_out_penalty():
+    data = read_game_options()
+    return data['utterly_wiped_out']
+
+
+def get_bonus():
+    data = read_game_options()
+    return data['bonus']

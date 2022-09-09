@@ -1,5 +1,1 @@
 round_number,user_name,protected_peddle,unprotected_peddle,highest_peddle_in_hand,has_banker,has_sold_out,has_double_crossed,has_utterly_wiped_out
-1,JOHN,75000,5000,0,0,0,0,0
-1,JANIS,30000,0,5000,1,0,0,0
-1,BOB,0,5000,25000,0,0,0,1
-1,AMY,0,175000,5000,0,0,1,0

@@ -45,7 +45,7 @@ def create_new_game_files(rounds=None, number_of_rounds=-1):
     delete_files("game_files/round_processed_files")
     create_game_options()
     generate_player_file()
-    round_numbers = get_round_numbers(rounds, number_of_rounds)
+    round_numbers = get_round_numbers_for_create(rounds, number_of_rounds)
     generate_round_file(round_numbers)
     # Only going to generate 1 round
     round_info_file(round_numbers)
@@ -69,7 +69,7 @@ def create_game_options():
         outfile.write(json_object)
 
 
-def get_round_numbers(rounds, number_of_rounds):
+def get_round_numbers_for_create(rounds, number_of_rounds):
     if number_of_rounds == -1:
         return rounds
     else:
@@ -78,6 +78,16 @@ def get_round_numbers(rounds, number_of_rounds):
         for i in range(1, number_of_rounds):
             rounds.append(i)
         return rounds
+
+
+def get_round_numbers():
+    df = pd.read_csv('game_files/rounds.csv')
+    round_numbers = df['round_number']
+    return round_numbers
+
+
+def get_all_round_information():
+    return pd.read_csv('game_files/rounds.csv')
 
 
 def generate_player_file():

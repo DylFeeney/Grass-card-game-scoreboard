@@ -21,6 +21,12 @@ def get_player_names():
     names = df['player_name']
     return names
 
+
+def get_number_of_players():
+    players = get_player_names()
+    return len(players)
+
+
 def add_player_to_game(player):
     fields = [player]
     with open(r'game_files/player_info.csv', 'a') as f:
