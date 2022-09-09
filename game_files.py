@@ -44,7 +44,7 @@ def create_new_game_files(rounds=None, number_of_rounds=-1):
     delete_files("game_files/round_information_files")
     delete_files("game_files/round_processed_files")
     create_game_options()
-    generate_user_file()
+    generate_player_file()
     round_numbers = get_round_numbers(rounds, number_of_rounds)
     generate_round_file(round_numbers)
     # Only going to generate 1 round
@@ -80,10 +80,10 @@ def get_round_numbers(rounds, number_of_rounds):
         return rounds
 
 
-def generate_user_file():
-    f = open('game_files/user_info.csv', 'w+')
+def generate_player_file():
+    f = open('game_files/player_info.csv', 'w+')
     writer = csv.writer(f, lineterminator='\n')
-    user_name_row = ['user_name']
+    user_name_row = ['player_name']
     writer.writerow(user_name_row)
     f.close()
 
