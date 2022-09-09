@@ -14,8 +14,37 @@
                 </a>
             </div>
             <div class="col-sm-9">
-                <h1>Grass - Game Settings</h1>
+                <h1>Grass - Game Options</h1>
             </div>
+        </div>
+        <div class="row">
+             <form action = "http://127.0.0.1:5000/game-options" method="POST">
+                 <div class="form-group">
+                     <label for="banker">Banker value</label>
+                     <input type="number" value="{{ game_options.banker }}" class="form-control" id="banker" name="banker">
+                 </div>
+                 <div class="form-group">
+                     <label for="sold_out">Sold out penalty</label>
+                     <input type="number" value="{{ game_options.sold_out }}" class="form-control" id="sold_out" name="sold_out">
+                 </div>
+                 <div class="form-group">
+                     <label for="doublecrossed">Doublecrossed penalty</label>
+                     <input type="number" value="{{ game_options.doublecrossed }}" class="form-control" id="doublecrossed" name="doublecrossed">
+                 </div>
+                 <div class="form-group">
+                     <label for="utterly_wiped_out">Utterly Wiped Out penalty</label>
+                     <input type="number" value="{{ game_options.utterly_wiped_out }}" class="form-control" id="utterly_wiped_out" name="utterly_wiped_out">
+                 </div>
+                 <div class="form-group">
+                     <label for="bonus">Round bonus</label>
+                     <input type="number" value="{{ game_options.bonus }}" class="form-control" id="bonus" name="bonus">
+                 </div>
+                 <div class="form-group">
+                     <label for="winning_value">Winning Value</label>
+                     <input type="number" value="{{ game_options.winning_value }}" class="form-control" id="winning_value" name="winning_value">
+                 </div>
+                 <button type="submit" class="btn btn-success" value="Submit">Submit game options</button>
+            </form>
         </div>
     </div>
 

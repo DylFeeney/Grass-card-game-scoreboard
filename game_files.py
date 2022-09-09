@@ -56,10 +56,10 @@ def create_new_game_files(rounds=[1], number_of_rounds=-1):
 
 def create_game_options():
     game_options = {
-        "sold_out": -25000,
         "banker": 5000,
+        "sold_out": -25000,
         "doublecrossed": -50000,
-        "utterly_wipped_out": -100000,
+        "utterly_wiped_out": -100000,
         "bonus": 25000,
         "winning_value": 250000
     }
