@@ -1,5 +1,6 @@
 from flask import request, render_template, Blueprint
 import csv
+import json
 import os
 import pandas as pd
 
@@ -44,12 +45,30 @@ def create_new_game_files(rounds=[1], number_of_rounds=-1):
         rounds = [1]
     delete_files("game_files/round_information_files")
     delete_files("game_files/round_processed_files")
+    create_game_options()
     generate_user_file()
     round_numbers = get_round_numbers(rounds, number_of_rounds)
     generate_round_file(round_numbers)
     # Only going to generate 1 round
     round_info_file(round_numbers)
     processed_round_info_files(round_numbers)
+
+
+def create_game_options():
+    game_options = {
+        "sold_out": -25000,
+        "banker": 5000,
+        "doublecrossed": -50000,
+        "utterly_wipped_out": -100000,
+        "bonus": 25000,
+        "winning_value": 250000
+    }
+    # Serializing json
+    json_object = json.dumps(game_options, indent=4)
+
+    # Writing to sample.json
+    with open('game_files/game_optons.json', "w+") as outfile:
+        outfile.write(json_object)
 
 
 def get_round_numbers(rounds, number_of_rounds):
