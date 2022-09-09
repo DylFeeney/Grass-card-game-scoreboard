@@ -32,17 +32,15 @@ def delete_files(directory):
         os.remove(file)
 
 
-def create_new_game_files(rounds=[1], number_of_rounds=-1):
+def create_new_game_files(rounds=None, number_of_rounds=-1):
     """
     Create a new game, re-creates all the game files to 'reset' them all. The optional parm rounds can be populated to
     create more than 1 round.
-    :param number_of_rounds:
+    :param number_of_rounds: The number of rounds to create for the game
     :param rounds: Pass in the number of rounds to create in a list e.g [1, 2, 3,] will create three rounds
     :return:
     """
     # Delete the existing files in the directories
-    if rounds is None:
-        rounds = [1]
     delete_files("game_files/round_information_files")
     delete_files("game_files/round_processed_files")
     create_game_options()
@@ -66,7 +64,7 @@ def create_game_options():
     # Serializing json
     json_object = json.dumps(game_options, indent=4)
 
-    # Writing to sample.json
+    # Writing to game_optons.json
     with open('game_files/game_optons.json', "w+") as outfile:
         outfile.write(json_object)
 
